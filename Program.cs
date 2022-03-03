@@ -18,18 +18,26 @@ namespace PlanYourHeist
                 Console.WriteLine("What is your friend's name, Comrade member?");
                 response = Console.ReadLine();
             }
-            squad.addTeamSkillLevel();
-            //display teams skill lvl and bank difficulty
-            Console.WriteLine($"Bank: {bank.DifficultyLevel} || Squad: {squad.TeamSkillLevel}");
+            // ask for how many trial runs
+            Console.WriteLine("How many times should we hit this bank, COMRADE?");
+            int trialRuns = int.Parse(Console.ReadLine());
+            //loop to run trials
+            for (int i = 0; i < trialRuns; i++)
+            {
+                bank.NewDifficulty();
+                squad.addTeamSkillLevel();
+                //display teams skill lvl and bank difficulty
+                Console.WriteLine($"Bank: {bank.DifficultyLevel} || Squad: {squad.TeamSkillLevel}");
 
 
-            if (squad.TeamSkillLevel > bank.DifficultyLevel)
-            {
-                Console.WriteLine("Great Success!");
-            }
-            else
-            {
-                Console.WriteLine("Failure");
+                if (squad.TeamSkillLevel > bank.DifficultyLevel)
+                {
+                    Console.WriteLine("Great Success!");
+                }
+                else
+                {
+                    Console.WriteLine("Failure");
+                }
             }
 
             // Console.WriteLine($"You have a team of {squad.GetTeamSize()}.");

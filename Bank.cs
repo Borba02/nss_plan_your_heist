@@ -15,4 +15,10 @@ class Bank
         DifficultyLevel = 100 + LuckLevel;
 
     }
+
+    // this method reassigns difficulty level
+    public void NewDifficulty()
+    {
+        DifficultyLevel = (new Random().Next(21)) + 90;
+    }
 }
