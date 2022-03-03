@@ -7,6 +7,8 @@ namespace PlanYourHeist
     {
         public List<TeamMember> Roster { get; }
         public int TeamSkillLevel { get; set; }
+        public int Successes { get; set; }
+        public int Failures { get; set; }
 
         public Team()
         {
