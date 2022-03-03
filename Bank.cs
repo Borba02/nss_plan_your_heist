@@ -1,13 +1,18 @@
 using System;
+using System.Collections.Generic;
 
 class Bank
 {
-    public string Name {get; set;}
-    public int DifficultyLevel {get; set;}
+    public string Name { get; set; }
+    public int DifficultyLevel { get; set; }
 
-    public Bank(string name) 
+    public int LuckLevel { get; set; }
+
+    public Bank(string name)
     {
         Name = name;
-        DifficultyLevel = 100;
+        LuckLevel = (new Random().Next(21)) - 10;
+        DifficultyLevel = 100 + LuckLevel;
+
     }
 }
