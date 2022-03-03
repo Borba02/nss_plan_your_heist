@@ -6,7 +6,6 @@ namespace PlanYourHeist
     {
         static void Main(string[] args)
         {
-            Bank bank = new Bank("Big Bank");
             Team squad = new Team();
             Console.WriteLine("Plan your heist!");
             Console.WriteLine("What is your name, Comrade Member?");
@@ -18,6 +17,8 @@ namespace PlanYourHeist
                 Console.WriteLine("What is your friend's name, Comrade member?");
                 response = Console.ReadLine();
             }
+            //make the bank here so they can choose the bank after making the team
+            Bank bank = new Bank("Big Bank");
             // ask for how many trial runs
             Console.WriteLine("How many times should we hit this bank, COMRADE?");
             int trialRuns = int.Parse(Console.ReadLine());
@@ -33,12 +34,16 @@ namespace PlanYourHeist
                 if (squad.TeamSkillLevel > bank.DifficultyLevel)
                 {
                     Console.WriteLine("Great Success!");
+                    squad.Successes++;
                 }
                 else
                 {
                     Console.WriteLine("Failure");
+                    squad.Failures++;
                 }
             }
+
+            Console.WriteLine($"Comrade, we have been successful {squad.Successes} times, and failed {squad.Failures} times.");
 
             // Console.WriteLine($"You have a team of {squad.GetTeamSize()}.");
             // Console.WriteLine("The team is as follows: ");
